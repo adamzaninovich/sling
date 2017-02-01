@@ -17,6 +17,13 @@ config :sling, Sling.Endpoint,
   pubsub: [name: Sling.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :guardian, Guardian,
+  issuer: "Sling",
+  ttl: {30, :days},
+  verify_issuer: true,
+  serializer: Sling.GuardianSerializer,
+  secret_key: "LhK5W//MYIwAHEsHpLmj/AWi1Mp2thQMsAZrpcticnmdr9z989R6YwXqbNGVdTkm"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
